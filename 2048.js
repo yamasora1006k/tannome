@@ -140,15 +140,26 @@ function slideDown() {
 }
 
 function setTwo() {
+  // 空き位置を検索する
+  let emptyTiles = [];
   for (let r = 0; r < rows; r++) {
     for (let c = 0; c < columns; c++) {
-      if (board[r][c] == 0) {
-        board[r][c] = getRandomNum(); // 画像番号を設定
-        let tile = document.getElementById(r.toString() + "-" + c.toString());
-        updateTile(tile, board[r][c]);
-        return; // 1つのタイルを設定したら関数を終了
+      if (board[r][c] === 0) {
+        emptyTiles.push({ r, c });
       }
     }
+  }
+
+  if (emptyTiles.length > 0) {
+    // 空き位置からランダムに1つ選択する
+    let randomPos = emptyTiles[Math.floor(Math.random() * emptyTiles.length)];
+    let r = randomPos.r;
+    let c = randomPos.c;
+
+    // 選択した位置に新しいタイルを設置する
+    board[r][c] = getRandomNum(); // 新しいタイルの値（2または4）
+    let tile = document.getElementById(r.toString() + "-" + c.toString());
+    updateTile(tile, board[r][c]);
   }
 }
 
