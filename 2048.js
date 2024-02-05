@@ -184,9 +184,9 @@ document.addEventListener("keyup", (e) => {
     // 現在のURLを取得
     const currentUrl = window.location.href;
     // index.html または index1.html が含まれているかどうかを確認
-    if (currentUrl.endsWith("index.html")) {
+    if (currentUrl.includes("index.html")) {
       window.location.href = "./index1.html";
-    } else if (currentUrl.endsWith("index1.html")) {
+    } else if (currentUrl.includes("index1.html") || currentUrl.endsWith("/")) {
       window.location.href = "./index.html";
     }
   }
