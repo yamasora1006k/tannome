@@ -181,15 +181,13 @@ function hasEmptyTile() {
 }
 document.addEventListener("keyup", (e) => {
   if (e.code === "Enter") {
-    // 現在のURLのパスを取得
-    const path = window.location.pathname;
-    const currentPage = path.substring(path.lastIndexOf("/") + 1);
-
-    // 現在のページに基づいてリダイレクト先を決定
-    if (currentPage === "index.html") {
-      window.location.href = "index1.html";
-    } else if (currentPage === "index1.html") {
-      window.location.href = "index.html";
+    // 現在のURLを取得
+    const currentUrl = window.location.href;
+    // index.html または index1.html が含まれているかどうかを確認
+    if (currentUrl.endsWith("index.html")) {
+      window.location.href = "./index1.html";
+    } else if (currentUrl.endsWith("index1.html")) {
+      window.location.href = "./index.html";
     }
   }
 });
