@@ -179,6 +179,20 @@ function hasEmptyTile() {
   }
   return false;
 }
+document.addEventListener("keyup", (e) => {
+  if (e.code === "Enter") {
+    // 現在のURLのパスを取得
+    const path = window.location.pathname;
+    const currentPage = path.substring(path.lastIndexOf("/") + 1);
+
+    // 現在のページに基づいてリダイレクト先を決定
+    if (currentPage === "index.html") {
+      window.location.href = "index1.html";
+    } else if (currentPage === "index1.html") {
+      window.location.href = "index.html";
+    }
+  }
+});
 
 function alertButton() {
   score = 0; // スコアをリセット
