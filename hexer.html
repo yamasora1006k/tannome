@@ -1,0 +1,440 @@
+<!-- @format -->
+
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <title>画像を入れよう</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background: rgb(0, 0, 0);
+      }
+      #imageInput {
+        margin-bottom: 10px;
+      }
+      a {
+        display: none;
+        margin-top: 10px;
+      } /* 初期状態ではリンクを非表示に */
+      .ne {
+        width: 100px;
+        margin: auto;
+        padding: 200px 0px;
+      }
+      @-webkit-keyframes glitch {
+        0% {
+          clip: rect(17px, 9999px, 62px, 0);
+        }
+        5% {
+          clip: rect(43px, 9999px, 46px, 0);
+        }
+        10% {
+          clip: rect(87px, 9999px, 1px, 0);
+        }
+        15% {
+          clip: rect(11px, 9999px, 13px, 0);
+        }
+        20% {
+          clip: rect(9px, 9999px, 87px, 0);
+        }
+        25% {
+          clip: rect(8px, 9999px, 66px, 0);
+        }
+        30% {
+          clip: rect(87px, 9999px, 1px, 0);
+        }
+        35% {
+          clip: rect(3px, 9999px, 37px, 0);
+        }
+        40% {
+          clip: rect(54px, 9999px, 8px, 0);
+        }
+        45% {
+          clip: rect(35px, 9999px, 49px, 0);
+        }
+        50% {
+          clip: rect(38px, 9999px, 94px, 0);
+        }
+        55% {
+          clip: rect(66px, 9999px, 56px, 0);
+        }
+        60% {
+          clip: rect(10px, 9999px, 70px, 0);
+        }
+        65% {
+          clip: rect(100px, 9999px, 46px, 0);
+        }
+        70% {
+          clip: rect(24px, 9999px, 70px, 0);
+        }
+        75% {
+          clip: rect(47px, 9999px, 68px, 0);
+        }
+        80% {
+          clip: rect(67px, 9999px, 97px, 0);
+        }
+        85% {
+          clip: rect(5px, 9999px, 13px, 0);
+        }
+        90% {
+          clip: rect(84px, 9999px, 20px, 0);
+        }
+        95% {
+          clip: rect(53px, 9999px, 39px, 0);
+        }
+        100% {
+          clip: rect(57px, 9999px, 79px, 0);
+        }
+      }
+
+      @keyframes glitch {
+        0% {
+          clip: rect(17px, 9999px, 62px, 0);
+        }
+        5% {
+          clip: rect(43px, 9999px, 46px, 0);
+        }
+        10% {
+          clip: rect(87px, 9999px, 1px, 0);
+        }
+        15% {
+          clip: rect(11px, 9999px, 13px, 0);
+        }
+        20% {
+          clip: rect(9px, 9999px, 87px, 0);
+        }
+        25% {
+          clip: rect(8px, 9999px, 66px, 0);
+        }
+        30% {
+          clip: rect(87px, 9999px, 1px, 0);
+        }
+        35% {
+          clip: rect(3px, 9999px, 37px, 0);
+        }
+        40% {
+          clip: rect(54px, 9999px, 8px, 0);
+        }
+        45% {
+          clip: rect(35px, 9999px, 49px, 0);
+        }
+        50% {
+          clip: rect(38px, 9999px, 94px, 0);
+        }
+        55% {
+          clip: rect(66px, 9999px, 56px, 0);
+        }
+        60% {
+          clip: rect(10px, 9999px, 70px, 0);
+        }
+        65% {
+          clip: rect(100px, 9999px, 46px, 0);
+        }
+        70% {
+          clip: rect(24px, 9999px, 70px, 0);
+        }
+        75% {
+          clip: rect(47px, 9999px, 68px, 0);
+        }
+        80% {
+          clip: rect(67px, 9999px, 97px, 0);
+        }
+        85% {
+          clip: rect(5px, 9999px, 13px, 0);
+        }
+        90% {
+          clip: rect(84px, 9999px, 20px, 0);
+        }
+        95% {
+          clip: rect(53px, 9999px, 39px, 0);
+        }
+        100% {
+          clip: rect(57px, 9999px, 79px, 0);
+        }
+      }
+
+      @-webkit-keyframes glitch-2 {
+        0% {
+          clip: rect(19px, 9999px, 94px, 0);
+        }
+        5% {
+          clip: rect(81px, 9999px, 97px, 0);
+        }
+        10% {
+          clip: rect(58px, 9999px, 48px, 0);
+        }
+        15% {
+          clip: rect(16px, 9999px, 47px, 0);
+        }
+        20% {
+          clip: rect(54px, 9999px, 27px, 0);
+        }
+        25% {
+          clip: rect(93px, 9999px, 1px, 0);
+        }
+        30% {
+          clip: rect(55px, 9999px, 19px, 0);
+        }
+        35% {
+          clip: rect(34px, 9999px, 38px, 0);
+        }
+        40% {
+          clip: rect(82px, 9999px, 79px, 0);
+        }
+        45% {
+          clip: rect(45px, 9999px, 44px, 0);
+        }
+        50% {
+          clip: rect(67px, 9999px, 59px, 0);
+        }
+        55% {
+          clip: rect(83px, 9999px, 6px, 0);
+        }
+        60% {
+          clip: rect(95px, 9999px, 70px, 0);
+        }
+        65% {
+          clip: rect(74px, 9999px, 12px, 0);
+        }
+        70% {
+          clip: rect(21px, 9999px, 2px, 0);
+        }
+        75% {
+          clip: rect(1px, 9999px, 23px, 0);
+        }
+        80% {
+          clip: rect(11px, 9999px, 91px, 0);
+        }
+        85% {
+          clip: rect(81px, 9999px, 10px, 0);
+        }
+        90% {
+          clip: rect(22px, 9999px, 98px, 0);
+        }
+        95% {
+          clip: rect(68px, 9999px, 59px, 0);
+        }
+        100% {
+          clip: rect(79px, 9999px, 12px, 0);
+        }
+      }
+
+      @keyframes glitch-2 {
+        0% {
+          clip: rect(19px, 9999px, 94px, 0);
+        }
+        5% {
+          clip: rect(81px, 9999px, 97px, 0);
+        }
+        10% {
+          clip: rect(58px, 9999px, 48px, 0);
+        }
+        15% {
+          clip: rect(16px, 9999px, 47px, 0);
+        }
+        20% {
+          clip: rect(54px, 9999px, 27px, 0);
+        }
+        25% {
+          clip: rect(93px, 9999px, 1px, 0);
+        }
+        30% {
+          clip: rect(55px, 9999px, 19px, 0);
+        }
+        35% {
+          clip: rect(34px, 9999px, 38px, 0);
+        }
+        40% {
+          clip: rect(82px, 9999px, 79px, 0);
+        }
+        45% {
+          clip: rect(45px, 9999px, 44px, 0);
+        }
+        50% {
+          clip: rect(67px, 9999px, 59px, 0);
+        }
+        55% {
+          clip: rect(83px, 9999px, 6px, 0);
+        }
+        60% {
+          clip: rect(95px, 9999px, 70px, 0);
+        }
+        65% {
+          clip: rect(74px, 9999px, 12px, 0);
+        }
+        70% {
+          clip: rect(21px, 9999px, 2px, 0);
+        }
+        75% {
+          clip: rect(1px, 9999px, 23px, 0);
+        }
+        80% {
+          clip: rect(11px, 9999px, 91px, 0);
+        }
+        85% {
+          clip: rect(81px, 9999px, 10px, 0);
+        }
+        90% {
+          clip: rect(22px, 9999px, 98px, 0);
+        }
+        95% {
+          clip: rect(68px, 9999px, 59px, 0);
+        }
+        100% {
+          clip: rect(79px, 9999px, 12px, 0);
+        }
+      }
+
+      .glitch-effect {
+        color: white;
+        font-size: 80px;
+        position: relative;
+        width: 400px;
+        margin: 0 auto;
+        position: absolute;
+      }
+
+      .glitch-effect:after {
+        content: attr(data-text);
+        position: absolute;
+        left: 2px;
+        text-shadow: -1px 0 red;
+        top: 0;
+        color: white;
+        background: black;
+        overflow: hidden;
+        clip: rect(0, 900px, 0, 0);
+        animation: glitch 2s infinite linear alternate-reverse;
+      }
+
+      .glitch-effect:before {
+        content: attr(data-text);
+        position: absolute;
+        left: -2px;
+        text-shadow: 1px 0 blue;
+        top: 0;
+        color: white;
+        background: black;
+        overflow: hidden;
+        clip: rect(0, 900px, 0, 0);
+        animation: glitch-2 3s infinite linear alternate-reverse;
+      }
+
+      .glitch-effect {
+        position: absolute;
+        color: #0f0;
+        font-size: 20px;
+        animation: glitch-animation 1s infinite;
+      }
+      @keyframes glitch-animation {
+        0% {
+          text-shadow: 1px 1px #f00, -1px -1px #0ff;
+        }
+        20% {
+          text-shadow: 2px 2px #f00, -2px -2px #0ff;
+        }
+        40% {
+          text-shadow: 3px 3px #f00, -3px -3px #0ff;
+        }
+        60% {
+          text-shadow: 4px 4px #f00, -4px -4px #0ff;
+        }
+        80% {
+          text-shadow: 5px 5px #f00, -5px -5px #0ff;
+        }
+        100% {
+          text-shadow: 6px 6px #f00, -6px -6px #0ff;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="mido">ㅤㅤ</div>
+    <p class="glitch-effect" data-text="z">H</p>
+    <p class="glitch-effect" data-text="e">Y</p>
+    <p class="glitch-effect" data-text="r">L</p>
+    <p class="glitch-effect" data-text="U">I</p>
+    <p class="glitch-effect" data-text="d">A</p>
+    <p class="glitch-effect" data-text="a">N</p>
+    <p class="glitch-effect" data-text="a">m</p>
+    <p class="glitch-effect" data-text="a">o</p>
+    <p class="glitch-effect" data-text="a">j</p>
+    <p class="glitch-effect" data-text="a">i</p>
+    <div class="ne">
+      <input type="file" id="imageInput" accept="image/png, image/jpeg" />
+      <br /><br /><br /><br /><br />
+      <pre id="message"></pre>
+      <br /><br /><br /><br />
+      <a id="link" target="_blank"></a>
+    </div>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const elements = document.querySelectorAll(".glitch-effect");
+
+        function updatePosition(element) {
+          const x = Math.random() * (window.innerWidth - element.clientWidth);
+          const y = Math.random() * (window.innerHeight - element.clientHeight);
+          element.style.left = `${x}px`;
+          element.style.top = `${y}px`;
+        }
+
+        function animateElements() {
+          elements.forEach((el) => {
+            updatePosition(el);
+            // 次の位置更新までの遅延を3秒に設定
+            setTimeout(() => animateElements(el), 7000);
+          });
+        }
+
+        animateElements();
+      });
+      function createGlitchElement() {
+        const glitch = document.createElement("div");
+        glitch.className = "glitch-effect";
+        glitch.textContent = "ANAgrAm"; // ここに任意のテキストを設定
+        document.body.appendChild(glitch);
+
+        // 画面サイズに応じてランダムな位置を設定
+        const x = Math.random() * window.innerWidth;
+        const y = Math.random() * window.innerHeight;
+        glitch.style.left = `${x}px`;
+        glitch.style.top = `${y}px`;
+        // 2秒後に要素を削除
+        setTimeout(() => {
+          glitch.remove();
+        }, 2000);
+      }
+
+      // 例えば、10秒ごとに新しいグリッチエフェクトの文字を画面に追加
+      setInterval(createGlitchElement, 2300);
+
+      document
+        .getElementById("imageInput")
+        .addEventListener("change", function (e) {
+          const file = e.target.files[0];
+          if (!file) return;
+
+          const fileName = file.name;
+          const messageElement = document.getElementById("message");
+          const linkElement = document.getElementById("link");
+
+          if (fileName === "tanome_naoto.png") {
+            // 特定のファイル名がアップロードされた場合
+            messageElement.textContent = ""; // メッセージをクリア
+            linkElement.href = "https://x.gd/94leT";
+            linkElement.textContent = "https://x.gd/94leT";
+            linkElement.style.display = "block"; // リンクを表示
+          } else {
+            // その他のファイルがアップロードされた場合
+            const randomString = Math.random().toString(36).substring(2, 15);
+            messageElement.textContent = `${randomString}`;
+            linkElement.style.display = "none"; // リンクを非表示
+          }
+        });
+    </script>
+  </body>
+</html>
